@@ -4,17 +4,17 @@ on: push
 
 jobs:
   build:
+    runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
-        py-version: 
-            - 3.7 
-            - 3.8 
-            - 3.9
         os: 
             - ubuntu-latest 
             - macos-latest 
             - windows-latest
-    runs-on: '${{ matrix.os }}'
+        py-version:
+            - 3.7
+            - 3.8
+            - 3.9
     steps:
      - name: Set up Python
        uses: actions/setup-python@v4
